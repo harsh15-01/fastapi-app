@@ -14,8 +14,8 @@ def get_db():
 
 
 @app.get("/id")
-def read_user(user_id: int, db: SessionLocal = Depends(get_db)):
-    user_obj = db.query(User).filter(User.id == user_id).first()
+def read_user(id: int, db: SessionLocal = Depends(get_db)):
+    user_obj = db.query(User).filter(User.id == id).first()
     print(user_obj.firstName)
     return user_obj
 
